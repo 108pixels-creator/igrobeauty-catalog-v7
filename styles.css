@@ -187,7 +187,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   height: 20px;
   padding: 0 var(--space-1);
   border-radius: var(--radius-pill);
-  background: var(--action-accent-strong);
+  background: #50a27b;                  /* 27.10, было --action-accent-strong */
   color: var(--text-on-dark);
   font-size: var(--font-size-micro);
   font-weight: var(--weight-bold);
@@ -1236,6 +1236,15 @@ ul { margin: 0; padding: 0; list-style: none; }
   border-top: 1px solid var(--border-subtle);
 }
 /* как подвал Dialog: основная кнопка flex 3, второстепенная flex 1 */
+/* 27.10: в панели фильтров галочки, «Показать N товаров» и контур с текстом «Сбросить» – #335351 (цвет плашки меню
+   и «В корзину»), «Показать» при наведении – #3C8883; токены ДС переопределены только внутри панели */
+.ig-drawer {
+  --action-accent: #335351;
+  --action-cta: #335351;
+  --action-cta-hover: #3c8883;
+  --wash-cta: rgba(51, 83, 81, 0.08);
+  --shadow-cta-hover: 0 4px 8px 0 rgba(51, 83, 81, 0.3);
+}
 .ig-drawer__foot [data-apply] { flex: 3; padding-inline: var(--space-3); }
 .ig-drawer__foot [data-reset] { flex: 1; padding-inline: var(--space-3); }
 
