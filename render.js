@@ -469,6 +469,18 @@
 
   /* ---------- мега-меню ---------- */
   var megaEl = document.getElementById('mega');
+  /* 27.10, просьба Антона: в меню «Волос» «Завивка» – в первой колонке под «Блондом» (сборка data.js кладёт
+     разделы по колонкам подряд, и «Завивка» попадала под «Терапию»). Только меню – порядок разделов в каталоге прежний */
+  var MEGA_MOVE = { hair: [['Завивка', 'Блонд']] };
+  D.mega.panels.forEach(function (p) {
+    (MEGA_MOVE[p.cat] || []).forEach(function (mv) {
+      var g, at;
+      p.cols.forEach(function (col) { col.forEach(function (x, i) { if (x.title === mv[0]) { g = x; col.splice(i, 1); } }); });
+      if (!g) return;
+      p.cols.forEach(function (col) { col.forEach(function (x, i) { if (x.title === mv[1]) at = [col, i]; }); });
+      if (at) at[0].splice(at[1] + 1, 0, g);
+    });
+  });
   if (megaEl) {
     megaEl.innerHTML = '<div class="ig-container ig-mega__inner">' +
       '<button type="button" class="igro-icon-btn igro-icon-btn--ghost ig-mega__close" data-mega-close aria-label="Закрыть каталог">' + ic('close', 20) + '</button>' +
