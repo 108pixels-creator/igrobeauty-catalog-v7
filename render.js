@@ -248,7 +248,7 @@
   /* 21.10: ключ ветки design-lab сменён – корзина очищена по просьбе (0 товаров), v6 своей корзины не теряет.
      23.10 (данные из «Свода 22»): ключ товара в лабе – постоянный код продукта p.k (или артикул варианта),
      а не номер в списке – корзина и избранное переживают пересборку данных */
-  var CART_KEY = 'ig-catalog-v7-cart-k';   /* 27.10: v7 – своя корзина, лаба и v6 свои не теряют */
+  var CART_KEY = 'ig-catalog-v7-lab-cart-k';   /* 27.10: лаба v7 – своя корзина, v7 свою не теряет */
   var cart = {};
   function cartLoad(raw) { try { var c = JSON.parse(raw || '{}'); return c && typeof c === 'object' ? c : {}; } catch (e) { return {}; } }
   try { cart = cartLoad(localStorage.getItem(CART_KEY)); } catch (e) { cart = {}; }
@@ -729,7 +729,7 @@
     bell: '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M19 12.59V10c0-3.22-2.18-5.93-5.14-6.74A1.99 1.99 0 0 0 12 2c-.85 0-1.56.52-1.86 1.26C7.18 4.08 5 6.79 5 10v2.59L3.29 14.3a1 1 0 0 0-.29.71v2c0 .55.45 1 1 1h16c.55 0 1-.45 1-1v-2c0-.27-.11-.52-.29-.71L19 12.59ZM19 16H5v-.59l1.71-1.71A1 1 0 0 0 7 12.99V10c0-2.76 2.24-5 5-5s5 2.24 5 5v3c0 .27.11.52.29.71L19 15.41V16ZM5.64 3.3 4.23 1.89A10.94 10.94 0 0 0 1 9.67h2c0-2.4.94-4.66 2.64-6.36V3.3Zm12.72 0C20.06 5 21 7.26 21 9.66h2c0-2.94-1.14-5.7-3.22-7.78l-1.41 1.41-.01.01ZM12 22c1.31 0 2.41-.83 2.82-2H9.18c.41 1.17 1.51 2 2.82 2Z"/></svg>'
   };
   /* избранное (имитация) — в localStorage этого браузера */
-  var FAV_KEY = 'ig-catalog-v7-fav-k';   /* 23.10: ключ – постоянный код продукта */
+  var FAV_KEY = 'ig-catalog-v7-lab-fav-k';   /* 23.10: ключ – постоянный код продукта */
   var fav = {};
   try { fav = JSON.parse(localStorage.getItem(FAV_KEY) || '{}') || {}; } catch (e) { fav = {}; }
   function favSave() { try { localStorage.setItem(FAV_KEY, JSON.stringify(fav)); } catch (e) {} }
