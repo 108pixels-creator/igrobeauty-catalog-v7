@@ -1454,6 +1454,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   --mast-icon: var(--text-on-dark);
   --mast-logo-ink: var(--text-on-dark);
   --mast-mark-ink: var(--text-on-dark);
+  --mast-logo-dark: 1;                       /* знак для тёмного фона – тоньше линии (ниже, .ig-logo__svg-dark) */
   --mast-mark-accent: #6bb5b0;               /* логотип для тёмного фона (Figma 2636:1979) белый, кроме двух полос; полосы и «22 года
                                                с вами» – #6BB5B0, светлее цвета плашки (27.10; с 26.10 был цвет плашки #3C8883) */
 }
@@ -1466,6 +1467,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   --mast-logo-ink: #111111;
   --mast-mark-ink: #111111;
   --mast-mark-accent: var(--mast-accent);
+  --mast-logo-dark: 0;
   --mast-field: var(--surface-subtle);
   --mast-field-line: transparent;
   --mast-field-fg: var(--text-default);
@@ -1478,6 +1480,7 @@ ul { margin: 0; padding: 0; list-style: none; }
     --mast-logo-ink: #111111;
     --mast-mark-ink: #111111;
     --mast-mark-accent: var(--mast-accent);
+    --mast-logo-dark: 0;
     --mast-field: var(--surface-subtle);
     --mast-field-line: transparent;
     --mast-field-fg: var(--text-default);
@@ -1497,9 +1500,13 @@ ul { margin: 0; padding: 0; list-style: none; }
   transition: gap var(--mast-dur) var(--mast-ease), flex-direction var(--mast-dur) allow-discrete;
 }
 .ig-logo__svg { display: block; width: 65px; height: auto; }
-.ig-logo__svg .m-ink { fill: var(--mast-mark-ink, #111111); transition: fill 0.15s ease; }
-.ig-logo__svg .m-acc { fill: var(--mast-mark-accent, #004522); transition: fill 0.15s ease; }
-.ig-mast .ig-logo__svg { transition: width var(--mast-dur) var(--mast-ease); }
+.ig-logo__svg .m-ink, .ig-logo__svg-dark .m-ink { fill: var(--mast-mark-ink, #111111); transition: fill 0.15s ease; }
+.ig-logo__svg .m-acc, .ig-logo__svg-dark .m-acc { fill: var(--mast-mark-accent, #004522); transition: fill 0.15s ease; }
+.ig-mast .ig-logo__svg { opacity: calc(1 - var(--mast-logo-dark, 0)); transition: width var(--mast-dur) var(--mast-ease), opacity 0.15s ease; }
+/* знак для тёмного фона (Figma 2636:1873, 27.10) – линии тоньше: белое на тёмном кажется жирнее. Лежит поверх обычного
+   знака и проявляется вместо него, когда шапка в варианте для тёмного фона (--mast-logo-dark: 1) */
+.ig-logo__sign { position: relative; display: block; flex: none; }
+.ig-logo__svg-dark { position: absolute; inset: 0; width: 100%; height: 100%; opacity: var(--mast-logo-dark, 0); transition: opacity 0.15s ease; pointer-events: none; }
 .ig-mast .ig-logo__word { font-size: 20px; color: var(--mast-logo-ink); transition: color 0.15s var(--mast-ease), font-size var(--mast-dur) var(--mast-ease); }
 .ig-mast.is-compact .ig-logo__word { animation: ig-logo-swap var(--mast-dur) var(--mast-ease); }
 .ig-mast.was-compact:not(.is-compact) .ig-logo__word { animation: ig-logo-swap-back var(--mast-dur) var(--mast-ease); }
