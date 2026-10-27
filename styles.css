@@ -1614,6 +1614,14 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 /* сжатая шапка: знак логотипа и иконки, без подписей; меню спрятано */
 .ig-mast.is-collapsed .ig-mainnav { grid-template-rows: 0fr; }
+/* мини-шапка (прокрутка вниз, меню спрятано) – с тенью снизу, как у закреплённой панели фильтров (27.10). Только в этом
+   состоянии: у шапки с меню тени нет – она не ложится на панель фильтров под ней. Появляется вместе со сжатием,
+   пропадает сразу (переход задан только здесь) – меню выезжает уже без тени */
+.ig-mast.is-compact.is-collapsed {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
+  transition: background-color var(--mast-dur) var(--mast-ease), color 0.15s var(--mast-ease), transform var(--mast-dur) var(--mast-ease),
+              box-shadow var(--mast-dur) var(--mast-ease);
+}
 .ig-mast.is-collapsed .ig-mainnav__inner { opacity: 0; visibility: hidden; transition-delay: 0s; }
 .ig-mast.is-compact .ig-header__inner { padding-block: var(--space-2); }
 .ig-mast.is-compact .ig-logo { gap: var(--space-3); }
