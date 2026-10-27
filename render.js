@@ -36,7 +36,9 @@
   };
   /* фон шапки подкатегорий «Волос» и их групп: assets/hero/<id подкатегории>.jpg, 2880×480, в центре светло —
      заголовок читается. С 19.10.2026 — интерьеры из banners/horizontal/08_2026-10-19_hair-krea3-final
-     (до этого — текстуры из 02_2026-10-12_hair-hero-textures). Группа берёт картинку своей подкатегории */
+     (до этого — текстуры из 02_2026-10-12_hair-hero-textures). Группа берёт картинку своей подкатегории.
+     27.10 – под шапкой сайта фоны assets/hero-tall/<id>.webp с градиентом и размытием верха (Figma 2793:3276,
+     banners/horizontal/09_2026-10-27_hair-blur-figma), 2880×666, webp q82 */
   /* тёмные фоны шапки – на них шапка сайта в варианте для тёмного фона (светлый логотип, белый текст);
      по замеру контраста 19.10 тёмный только «Мужской уход» */
   var HERO_DARK = ['hair-muzhskoy-uhod'];
@@ -550,7 +552,7 @@
       '</div><button type="button" class="ig-directions__arrow ig-directions__arrow--right" data-scroll="1" aria-label="Ещё разделы">' + ic('arrow-right', 20) + '</button></div></section>';
   } else {
     var texId = node.level === 3 ? node.parent : node.id;
-    var tex = HERO_TEX.indexOf(texId) > -1 ? 'assets/hero-tall/' + texId + '.jpg' : '';
+    var tex = HERO_TEX.indexOf(texId) > -1 ? 'assets/hero-tall/' + texId + '.webp' : '';
     html = '<section class="ig-hero' + (tex ? ' ig-hero--tex' : '') + (tex && HERO_DARK.indexOf(texId) > -1 ? ' ig-hero--dark' : '') + '"' + (tex ? ' style="--hero-tex: url(&quot;' + tex + '&quot;)"' : '') + '><div class="ig-container">' + crumbsHTML() +
       '<h1 class="igro-promo ig-hero__title">' + esc(node.title) + '</h1>' +
       '</div></section>';

@@ -1637,7 +1637,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .ig-mast.is-compact .ig-logo__years { max-height: 0; opacity: 0; }
 
 /* баннер начинается под плашкой со скидкой и уходит под шапку: сверху к нему добавлена высота шапки
-   (--mast-h ставит script.js). Фоны «Волос» — высокие полосы assets/hero-tall/ (тот же кадр, выше на 192 px) */
+   (--mast-h ставит script.js). Фоны «Волос» — высокие полосы assets/hero-tall/*.webp (27.10: с градиентом и размытием верха из Figma) */
 .ig-hero { padding-top: calc(var(--space-7) + var(--mast-h, 0px)); }
 .ig-cathero { padding-top: calc(var(--space-3) + var(--mast-h, 0px)); }
 @media (max-width: 767px) {
