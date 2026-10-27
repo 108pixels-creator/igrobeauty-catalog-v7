@@ -1053,7 +1053,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   /* увеличение фото – только у товара; у продукта (стопки) фото не реагирует – выделяется вся карточка */
   .ig-card:not(.ig-card--stack) .ig-card__media:hover .ig-card__img { transform: scale(1.06); }
   .ig-card--stack { cursor: pointer; transition: box-shadow var(--duration-fast) ease; }
-  .ig-card--stack:hover { box-shadow: 0 0 0 2px var(--action-cta), 1px 2px 4px rgba(0, 0, 0, 0.15); }
+  .ig-card--stack:hover { box-shadow: 0 0 0 2px #335351, 1px 2px 4px rgba(0, 0, 0, 0.15); }   /* обводка – #335351 (27.10; было Uplift) */
   /* 23.10: без перекраски в зелёный – только подчёркивание; у продукта (стопки) названия не подчёркиваются */
   .ig-card:not(.ig-card--stack) .ig-card__link:hover { text-decoration: underline; }
   /* подпись – часть названия (27.10): наведение на название или на подпись подчёркивает обе */
@@ -1173,8 +1173,11 @@ ul { margin: 0; padding: 0; list-style: none; }
    ========================================================================== */
 .ig-pager { display: flex; justify-content: center; flex-wrap: wrap; margin-top: var(--space-6); }
 .igro-pagination__cell:active:not(:disabled) { transform: scale(var(--press-scale)); }
+/* 27.10: текущая страница – залита #335351 (цвет плашки меню и «В корзину»), рамка при наведении – тоже #335351
+   (в ДС – House --surface-inverse / --border-inverse) */
+.ig-pager .igro-pagination__page[aria-current="page"] { background: #335351; border-color: #335351; }
 @media (hover: hover) {
-  .igro-pagination__cell:not(:disabled):not([aria-current="page"]):hover { border-color: var(--border-inverse); }
+  .igro-pagination__cell:not(:disabled):not([aria-current="page"]):hover { border-color: #335351; }
 }
 .ig-empty--block { padding: var(--space-9) var(--space-4); background: var(--surface-card); border-radius: var(--radius-plate); box-shadow: var(--shadow-card); }
 .ig-empty--block .igro-empty__text { max-width: 46ch; }
