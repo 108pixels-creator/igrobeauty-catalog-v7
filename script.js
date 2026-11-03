@@ -83,12 +83,9 @@
     if (t.closest('[data-apply]')) { closeAll(); return; }
     if (t.closest('[data-close]')) { closeAll(); return; }
 
-    /* мега-меню: клик по «Каталог» после наведения не должен закрывать только что открытое меню */
-    if (t.closest('[data-toggle="mega"]') && megaEl) {
-      if (megaOpen() && megaByHover) megaByHover = false;
-      else setMega(!megaOpen());
-      return;
-    }
+    /* «Каталог» (03.11) – ссылка на главную каталога: клик ведёт туда, меню раскрывается наведением
+       (с клавиатуры – стрелкой вниз) */
+    if (t.closest('[data-toggle="mega"]')) return;
     if (t.closest('[data-mega-close]')) { setMega(false); if (catalogBtn) catalogBtn.focus(); return; }
     if (megaOpen() && !t.closest('#mega')) setMega(false);
     var catBtn = t.closest('.ig-mega__cat');
@@ -169,6 +166,13 @@
   });
 
   document.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowDown' && catalogBtn && e.target === catalogBtn && megaEl) {
+      e.preventDefault();
+      setMega(true);
+      var firstCat = megaEl.querySelector('.ig-mega__cat.is-active') || megaEl.querySelector('.ig-mega__cat');
+      if (firstCat) firstCat.focus();
+      return;
+    }
     if (e.key === 'Escape') {
       closeAll();
       if (megaOpen()) { setMega(false); if (catalogBtn) catalogBtn.focus(); }

@@ -581,6 +581,9 @@
   /* логотип ведёт на главную и сохраняет режим карточек */
   var logo = document.querySelector('.ig-logo');
   if (logo) logo.setAttribute('href', link('index.html'));
+  /* «Каталог» в меню – тоже на главную (03.11) */
+  var catLink = document.querySelector('[data-toggle="mega"]');
+  if (catLink) catLink.setAttribute('href', link('index.html'));
 
   /* ---------- подвал: категории и служебная строка прототипа ---------- */
   var footNav = document.getElementById('ig-footer-nav');
