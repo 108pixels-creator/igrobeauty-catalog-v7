@@ -627,16 +627,16 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 /* фон — цвет угла картинки, виден, пока она грузится (цвета картинок, не интерфейса).
    Подпись — IGRO Green (--text-heading): на всех светлых фонах ≥ 6:1. На тёмном баннере — белая */
-/* фон тайла = подложка баннера (квадраты v5 «один предмет крупно», banners/square/01_2026-10-26_chips-test/squares-v5, 26.10) */
-.ig-banner[data-banner="hair-okrashivanie"]    { --cb-bg: #c8f0da; }
-.ig-banner[data-banner="hair-blond"]           { --cb-bg: #f7e1c0; }
-.ig-banner[data-banner="hair-uhod-dlya-volos"] { --cb-bg: #c7eeea; }
-.ig-banner[data-banner="hair-terapiya"]        { --cb-bg: #ebe4d6; }
-.ig-banner[data-banner="hair-zavivka"]         { --cb-bg: #c8f0da; }
-.ig-banner[data-banner="hair-stayling"]        { --cb-bg: #f5e0d2; }
-.ig-banner[data-banner="hair-nabory"]          { --cb-bg: #f5e0d2; }
-.ig-banner[data-banner="hair-muzhskoy-uhod"]   { --cb-bg: #335351; }
-.ig-banner[data-banner="hair-aksessuary"]      { --cb-bg: #f7e1c0; }
+/* фон тайла = подложка баннера (квадраты «Волос» v3, Figma IGRO DESIGN SYSTEM 2674:2, 03.11; было – квадраты v5 от 26.10) */
+.ig-banner[data-banner="hair-okrashivanie"]    { --cb-bg: #f5dcce; }
+.ig-banner[data-banner="hair-blond"]           { --cb-bg: #c8f0da; }
+.ig-banner[data-banner="hair-uhod-dlya-volos"] { --cb-bg: #f5e0d2; }
+.ig-banner[data-banner="hair-terapiya"]        { --cb-bg: #d5e4fb; }
+.ig-banner[data-banner="hair-zavivka"]         { --cb-bg: #e9e0da; }
+.ig-banner[data-banner="hair-stayling"]        { --cb-bg: #98c0c8; }
+.ig-banner[data-banner="hair-nabory"]          { --cb-bg: #f7e1c0; }
+.ig-banner[data-banner="hair-muzhskoy-uhod"]   { --cb-bg: #634339; }
+.ig-banner[data-banner="hair-aksessuary"]      { --cb-bg: #acc2e5; }
 .ig-banner[data-banner="hair-instrumenty"]     { --cb-bg: #d6e9e7; }
 .ig-banner[data-banner="hair-muzhskoy-uhod"] { color: var(--text-on-dark); }
 
