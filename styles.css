@@ -1865,3 +1865,96 @@ ul { margin: 0; padding: 0; list-style: none; }
    отличает товары (оттенок, объём, размер), – тёмная полужирная */
 .ig-card--variant .ig-card__name { color: var(--text-muted); }
 .ig-card--variant .ig-card__desc { color: var(--text-default); font-weight: var(--weight-bold); }
+
+/* ==========================================================================
+   ГЛАВНАЯ КАТАЛОГА (index.html, 03.11.2026) – по макету Figma «IB – my DESIGN», узел 2862:4831.
+   Шапка и подвал – как на страницах каталога (render.js рисует только меню, подвал и корзину: body data-page="home").
+   Картинки – assets/home: баннеры категорий выгружены из макета целиком, без надписей (фото + градиент),
+   надписи – текстом. Шрифты макета Inter и Oswald заменены шрифтами ДС
+   ========================================================================== */
+/* фон главной белый, как в макете: у эмблем подборок и плиток белая подложка */
+body.igro[data-page="home"] { background: var(--surface-card); }
+.ig-home { padding-top: var(--mast-h, 0px); padding-bottom: var(--space-9); }
+.ig-home__strip {
+  display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: var(--space-2) var(--space-4);
+  padding: var(--space-3) 0;
+  font-family: var(--font-heading); font-size: 16px; color: var(--text-default);
+}
+.ig-home__delivery { margin: 0; }
+.ig-home__delivery b, .ig-home__pro { font-weight: var(--weight-bold); text-transform: uppercase; }
+.ig-home__delivery b:last-child { text-transform: none; }
+.ig-home__pro { color: var(--text-default); }
+.ig-home__pro:hover { color: var(--text-link); }
+
+/* подборки: картинка-эмблема и подпись под ней */
+.ig-promos { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-4); margin: var(--space-5) 0 var(--space-6); }
+.ig-promo { display: flex; flex-direction: column; align-items: center; justify-content: flex-end; color: var(--text-default); text-align: center; }
+.ig-promo img { width: auto; max-width: 100%; height: auto; max-height: 240px; object-fit: contain; transition: transform var(--duration-base); }
+.ig-promo:hover img { transform: scale(1.04); }
+.ig-promo__t { margin-top: var(--space-2); font-family: var(--font-heading); font-weight: var(--weight-bold); font-size: 32px; line-height: 1.2; text-transform: uppercase; max-width: 9em; }
+.ig-promo:hover .ig-promo__t { color: var(--text-link); }
+
+/* баннеры категорий: по два в ряд, 667×241 в макете; надпись слева или справа (ig-cat--end) */
+.ig-cats { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); margin: var(--space-4) 0; }
+.ig-cat {
+  position: relative; display: flex; aspect-ratio: 667 / 241; min-height: 200px; overflow: hidden;
+  border-radius: 12px; background: #e7e6eb var(--cat-img) center / cover no-repeat; color: var(--text-default);
+}
+.ig-cat--end { justify-content: flex-end; text-align: right; }
+.ig-cat__body { display: flex; flex-direction: column; align-items: flex-start; max-width: 52%; padding: 28px 30px 24px; }
+.ig-cat--end .ig-cat__body { align-items: flex-end; }
+.ig-cat__t { font-family: var(--font-heading); font-weight: var(--weight-bold); font-size: 32px; line-height: 1.17; text-transform: uppercase; }
+.ig-cat__d { margin-top: var(--space-3); font-size: 15px; line-height: 1.3; color: var(--text-muted); max-width: 15em; }
+.ig-cat__go { margin-top: auto; padding-top: var(--space-3); font-family: var(--font-heading); font-weight: var(--weight-semibold); font-size: 18px; text-transform: uppercase; }
+.ig-cat:hover .ig-cat__go { color: var(--text-link); }
+
+/* одноразовая продукция: заголовок с кнопкой и подкатегории плитками */
+.ig-dispo { display: grid; grid-template-columns: minmax(240px, 300px) 1fr; gap: var(--space-4); align-items: start; margin: var(--space-6) 0; padding-left: 30px; }
+.ig-dispo__t { margin: var(--space-2) 0 var(--space-4); font-family: var(--font-heading); font-weight: var(--weight-bold); font-size: 32px; line-height: 1.2; text-transform: uppercase; color: var(--text-default); }
+.ig-dispo__btn { text-transform: uppercase; font-family: var(--font-heading); font-size: 18px; font-weight: var(--weight-semibold); border-radius: 3px; }
+.ig-dispo__list { display: grid; grid-template-columns: repeat(6, 1fr); gap: var(--space-3); }
+.ig-dispo__item { display: flex; flex-direction: column; align-items: center; color: var(--text-default); text-align: center; }
+.ig-dispo__pic { display: grid; place-items: center; width: 100%; max-width: 130px; aspect-ratio: 1; border-radius: 23px; background: #f5f4f5; }
+.ig-dispo__pic img { width: 112%; max-width: none; height: auto; mix-blend-mode: multiply; transition: transform var(--duration-base); }   /* белый фон картинки – в цвет плитки */
+.ig-dispo__item:hover img { transform: scale(1.05); }
+.ig-dispo__name { margin-top: var(--space-3); font-size: 15px; font-weight: var(--weight-semibold); line-height: 1.15; max-width: 9em; }
+.ig-dispo__item:hover .ig-dispo__name { color: var(--text-link); }
+
+/* лучшее предложение: лента со стрелками */
+.ig-offers { margin: var(--space-7) 0 var(--space-6); }
+.ig-offers__t { margin: 0 0 var(--space-4); text-align: center; font-family: var(--font-heading); font-weight: var(--weight-bold); font-size: 32px; text-transform: uppercase; color: var(--text-default); }
+.ig-offers__wrap { display: flex; align-items: center; gap: var(--space-3); }
+.ig-offers__arrow { flex: none; display: grid; place-items: center; width: 32px; height: 56px; padding: 0; border: 0; background: none; color: var(--text-heading); cursor: pointer; }
+.ig-offers__arrow svg { width: 24px; height: 48px; fill: none; stroke: currentColor; stroke-width: 3; }
+.ig-offers__arrow:disabled { opacity: .25; cursor: default; }
+.ig-offers__track { flex: 1; display: grid; grid-auto-flow: column; grid-auto-columns: calc((100% - 4 * var(--space-4)) / 5); gap: var(--space-4); overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
+.ig-offers__track::-webkit-scrollbar { display: none; }
+.ig-offers__track > li { scroll-snap-align: start; }
+.ig-offer { display: flex; align-items: center; gap: var(--space-2); color: var(--text-heading); }
+.ig-offer img { flex: none; width: 46%; height: auto; }
+.ig-offer__txt { display: flex; flex-direction: column; min-width: 0; }
+.ig-offer__brand { font-family: var(--font-heading); font-weight: var(--weight-semibold); font-size: 24px; line-height: 1.1; }
+.ig-offer__big { font-family: var(--font-heading); font-weight: var(--weight-bold); font-size: 44px; line-height: 1; }
+.ig-offer__name { margin-top: var(--space-1); font-size: 14px; line-height: 1.2; color: var(--text-default); }
+.ig-offer:hover .ig-offer__brand { color: var(--text-link); }
+
+@media (max-width: 1100px) {
+  .ig-dispo { grid-template-columns: 1fr; padding-left: 0; }
+  .ig-offers__track { grid-auto-columns: calc((100% - 2 * var(--space-4)) / 3); }
+  .ig-cat__t, .ig-promo__t, .ig-dispo__t, .ig-offers__t { font-size: 26px; }
+}
+@media (max-width: 767px) {
+  .ig-promos { grid-template-columns: repeat(2, 1fr); gap: var(--space-4) var(--space-3); }
+  .ig-promo img { max-height: 140px; }
+  .ig-promo__t { font-size: 20px; }
+  .ig-cats { grid-template-columns: 1fr; gap: var(--space-3); margin: var(--space-3) 0; }
+  .ig-cat { min-height: 0; }
+  .ig-cat__body { max-width: 60%; padding: var(--space-3); }
+  .ig-cat__t, .ig-dispo__t, .ig-offers__t { font-size: 22px; }
+  .ig-cat__d { display: none; }
+  .ig-cat__go { font-size: 15px; }
+  .ig-dispo__list { grid-template-columns: repeat(3, 1fr); }
+  .ig-dispo__name { font-size: 13px; }
+  .ig-offers__track { grid-auto-columns: 80%; }
+  .ig-home__strip { font-size: 14px; }
+}

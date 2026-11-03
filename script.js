@@ -426,4 +426,22 @@
       setTimeout(function () { if (input) input.focus({ preventScroll: true }); }, 350);
     });
   }
+
+  /* главная (03.11): лента «Лучшее предложение» – стрелки листают на ширину ленты, у края стрелка гаснет */
+  var offers = document.querySelector('[data-offers-track]');
+  if (offers) {
+    var offWrap = offers.parentNode;
+    var offArrows = function () {
+      var max = offers.scrollWidth - offers.clientWidth - 8;   /* запас на округление ширины колонок */
+      offWrap.querySelector('[data-offers="-1"]').disabled = offers.scrollLeft <= 8;
+      offWrap.querySelector('[data-offers="1"]').disabled = offers.scrollLeft >= max;
+    };
+    offWrap.addEventListener('click', function (e) {
+      var b = e.target.closest('[data-offers]');
+      if (b) offers.scrollBy({ left: +b.getAttribute('data-offers') * offers.clientWidth, behavior: 'smooth' });
+    });
+    offers.addEventListener('scroll', offArrows, { passive: true });
+    window.addEventListener('resize', offArrows);
+    offArrows();
+  }
 })();

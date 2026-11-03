@@ -129,7 +129,9 @@
   /* неизвестный id не должен ронять страницу — открываем раздел по умолчанию */
   var idParam = params.get('id'), idDefault = document.body.getAttribute('data-default');
   var node = own(D.nodes, idParam) ? D.nodes[idParam] : (own(D.nodes, idDefault) ? D.nodes[idDefault] : D.nodes.hair);
-  document.title = node.title + ' – IGRObeauty';
+  /* главная каталога (index.html) – body data-page="home": раздела нет, меню открывается на «Волосах» */
+  var HOME = document.body.getAttribute('data-page') === 'home';
+  if (!HOME) document.title = node.title + ' – IGRObeauty';
 
   /* ---------- справочник брендов: страна, тип и ID ---------- */
   var BT_TIER = { ex: 0, pa: 1 };
@@ -573,9 +575,10 @@
   html += '<section class="ig-toolbar"><div class="ig-toolbar__panel" data-tbpanel><div class="ig-container">' +
     '<div class="ig-toolbar__row" id="ig-tb"></div><div id="ig-qf"></div></div></div></section>' +
     '<main class="ig-content"><div class="ig-container" id="ig-content"></div></main>';
-  document.getElementById('page').innerHTML = html;
+  /* главная (index.html, 03.11): разметка страницы своя, в index.html; отсюда – только меню, подвал и корзина */
+  if (!HOME) document.getElementById('page').innerHTML = html;
 
-  /* логотип ведёт на первую категорию и сохраняет режим карточек */
+  /* логотип ведёт на главную и сохраняет режим карточек */
   var logo = document.querySelector('.ig-logo');
   if (logo) logo.setAttribute('href', link('index.html'));
 
@@ -596,12 +599,13 @@
     var LEVEL = { 1: 'категория', 2: 'подкатегория', 3: 'группа' };
     var KIND = { set: ', собрана по полю «Тип продукта» = «Набор»', spf: ', собрана по полю «Наличие SPF» = «SPF»' };
     proto.innerHTML = '<span>Прототип каталога ' + esc(VERSION) + ' · справочник «' + esc(D.meta.source.replace(/\.xlsx$/, '')) + '» · сборка ' + esc(built) +
-      ' · раздел ' + esc(node.mid) + ', ' + LEVEL[node.level] + (KIND[node.kind] || '') + '</span>' +
+      (HOME ? ' · главная страница' : ' · раздел ' + esc(node.mid) + ', ' + LEVEL[node.level] + (KIND[node.kind] || '')) + '</span>' +
       '<span class="ig-proto__mode">Карточки: ' +
       (MODE === 'product' ? '<b>по продуктам</b>' : '<a href="' + here('product') + '">по продуктам</a>') + ' · ' +
       (MODE === 'sku' ? '<b>по артикулам</b>' : '<a href="' + here('sku') + '">по артикулам</a>') +
       ' · <button type="button" class="ig-proto__link" data-cart-clear>очистить корзину</button></span>';
   }
+  if (HOME) { renderCart(); return; }
 
   /* ---------- тулбар ---------- */
   /* медаль на чипе эксклюзивного бренда: кружок со звёздочкой, заливка — currentColor */
