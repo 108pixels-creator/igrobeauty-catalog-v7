@@ -646,7 +646,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .ig-banner[data-banner="dispo-sredstva-dlya-zaschity"] { --cb-bg: #c7e0df; }
 .ig-banner[data-banner="dispo-prostyni-i-pokrytiya"]   { --cb-bg: #f2d7c7; }
 .ig-banner[data-banner="dispo-polotenca-i-salfetki"]   { --cb-bg: #cbdefb; }
-.ig-banner[data-banner="dispo-dispensery-i-oborudovanie-dlya-rashodnyh-materialov"] { --cb-bg: #30524c; color: var(--text-on-dark); }
+.ig-banner[data-banner="dispo-dispensery-i-oborudovanie-dlya-rashodnyh-materialov"] { --cb-bg: #2c504c; color: var(--text-on-dark); }
 
 /* ==========================================================================
    ПАНЕЛЬ ИНСТРУМЕНТОВ: «Фильтры», чипы брендов (Tag), счётчик, сортировка (Menu)
