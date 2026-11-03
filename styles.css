@@ -640,6 +640,13 @@ ul { margin: 0; padding: 0; list-style: none; }
 .ig-banner[data-banner="hair-aksessuary"]      { --cb-bg: #acc2e5; }
 .ig-banner[data-banner="hair-instrumenty"]     { --cb-bg: #d6e9e7; }
 .ig-banner[data-banner="hair-muzhskoy-uhod"] { color: var(--text-on-dark); }
+/* 03.11: «Одноразовая продукция» – фоны квадратов – замер фона картинок (заданы были #C8F0DA, #F7E1C0, #D6E9E7, #F5E0D2, #D5E4FB, #335351) (banners/square/07_2026-11-03_dispo-palette-v) */
+.ig-banner[data-banner="dispo-odnorazovaya-odezhda"]   { --cb-bg: #c0e3d3; }
+.ig-banner[data-banner="dispo-odnorazovye-komplekty"]  { --cb-bg: #f3d7b8; }
+.ig-banner[data-banner="dispo-sredstva-dlya-zaschity"] { --cb-bg: #c7e0df; }
+.ig-banner[data-banner="dispo-prostyni-i-pokrytiya"]   { --cb-bg: #f2d7c7; }
+.ig-banner[data-banner="dispo-polotenca-i-salfetki"]   { --cb-bg: #cbdefb; }
+.ig-banner[data-banner="dispo-dispensery-i-oborudovanie-dlya-rashodnyh-materialov"] { --cb-bg: #30524c; color: var(--text-on-dark); }
 
 /* ==========================================================================
    ПАНЕЛЬ ИНСТРУМЕНТОВ: «Фильтры», чипы брендов (Tag), счётчик, сортировка (Menu)
@@ -1914,8 +1921,9 @@ body.igro[data-page="home"] { background: var(--surface-card); }
 .ig-dispo__btn { text-transform: uppercase; font-family: var(--font-heading); font-size: 18px; font-weight: var(--weight-semibold); border-radius: 3px; }
 .ig-dispo__list { display: grid; grid-template-columns: repeat(6, 1fr); gap: var(--space-3); }
 .ig-dispo__item { display: flex; flex-direction: column; align-items: center; color: var(--text-default); text-align: center; }
-.ig-dispo__pic { display: grid; place-items: center; width: 100%; max-width: 130px; aspect-ratio: 1; border-radius: 23px; background: #f5f4f5; }
-.ig-dispo__pic img { width: 112%; max-width: none; height: auto; mix-blend-mode: multiply; transition: transform var(--duration-base); }   /* белый фон картинки – в цвет плитки */
+/* 03.11: плитки – квадраты подкатегорий (те же, что в шапке «Одноразовой продукции»), вместо предметов из макета */
+.ig-dispo__pic { display: block; width: 100%; max-width: 150px; aspect-ratio: 1; overflow: hidden; border-radius: 16px; background: #f5f4f5; }
+.ig-dispo__pic img { width: 100%; height: 100%; object-fit: cover; transition: transform var(--duration-base); }
 .ig-dispo__item:hover img { transform: scale(1.05); }
 .ig-dispo__name { margin-top: var(--space-3); font-size: 15px; font-weight: var(--weight-semibold); line-height: 1.15; max-width: 9em; }
 .ig-dispo__item:hover .ig-dispo__name { color: var(--text-link); }

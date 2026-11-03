@@ -32,7 +32,14 @@
     'hair-nabory': 'Наборы',
     'hair-muzhskoy-uhod': 'Мужской уход',
     'hair-aksessuary': 'Аксессуары',
-    'hair-instrumenty': 'Инструменты'
+    'hair-instrumenty': 'Инструменты',
+    /* 03.11: квадраты «Одноразовой продукции» в палитре В (banners/square/07_2026-11-03_dispo-palette-v) */
+    'dispo-odnorazovaya-odezhda': 'Одежда',
+    'dispo-odnorazovye-komplekty': 'Комплекты',
+    'dispo-sredstva-dlya-zaschity': 'Средства защиты',
+    'dispo-prostyni-i-pokrytiya': 'Простыни и покрытия',
+    'dispo-polotenca-i-salfetki': 'Полотенца и салфетки',
+    'dispo-dispensery-i-oborudovanie-dlya-rashodnyh-materialov': 'Диспенсеры'
   };
   /* фон шапки подкатегорий «Волос» и их групп: assets/hero/<id подкатегории>.jpg, 2880×480, в центре светло —
      заголовок читается. С 19.10.2026 — интерьеры из banners/horizontal/08_2026-10-19_hair-krea3-final
