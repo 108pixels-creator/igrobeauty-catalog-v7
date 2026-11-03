@@ -1916,7 +1916,7 @@ body.igro[data-page="home"] { background: var(--surface-card); }
 .ig-cats { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); margin: var(--space-4) 0; }
 .ig-cat {
   position: relative; display: flex; aspect-ratio: 667 / 241; min-height: 200px; overflow: hidden;
-  border-radius: 12px; background: #e7e6eb var(--cat-img) center / cover no-repeat; color: var(--text-default);
+  border-radius: 12px; background: var(--cat-bg, #e7e6eb) var(--cat-img) center / cover no-repeat;   /* --cat-bg – фон картинки (04.11), виден, пока она грузится */ color: var(--text-default);
 }
 .ig-cat--end { justify-content: flex-end; text-align: right; }
 .ig-cat__body { display: flex; flex-direction: column; align-items: flex-start; max-width: 52%; padding: 28px 30px 24px; }
