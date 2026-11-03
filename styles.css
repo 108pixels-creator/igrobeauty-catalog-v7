@@ -1893,12 +1893,23 @@ body.igro[data-page="home"] { background: var(--surface-card); }
 .ig-home__pro { color: var(--text-default); }
 .ig-home__pro:hover { color: var(--text-link); }
 
-/* подборки: картинка-эмблема и подпись под ней */
-.ig-promos { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-4); margin: var(--space-5) 0 var(--space-6); }
-.ig-promo { display: flex; flex-direction: column; align-items: center; justify-content: flex-end; color: var(--text-default); text-align: center; }
-.ig-promo img { width: auto; max-width: 100%; height: auto; max-height: 240px; object-fit: contain; transition: transform var(--duration-base); }
-.ig-promo:hover img { transform: scale(1.04); }
-.ig-promo__t { margin-top: var(--space-2); font-family: var(--font-heading); font-weight: var(--weight-bold); font-size: 32px; line-height: 1.2; text-transform: uppercase; max-width: 9em; }
+/* верх главной (03.11, просьба Антона): слева 4 плашки подборок 2×2, справа «Волосы» над «Бровями».
+   Одна сетка в 4 колонки: баннер занимает 2 колонки и задаёт высоту ряда (667 : 241), плашки тянутся на ту же высоту –
+   пара плашек вместе равна баннеру. Фоны плашек – светлые палитры В, по одному на семейство */
+.ig-home__top { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-4); margin: var(--space-4) 0; }
+.ig-home__top > .ig-cat { grid-column: span 2; }
+.ig-promo {
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: var(--space-2);
+  min-width: 0; padding: var(--space-3); border-radius: 12px; background: var(--promo-bg); color: var(--text-default); text-align: center;
+  transition: box-shadow var(--duration-base);
+}
+.ig-promo--new      { --promo-bg: #d6e9e7; }
+.ig-promo--top      { --promo-bg: #f7e1c0; }
+.ig-promo--markdown { --promo-bg: #c8f0da; }
+.ig-promo--sale     { --promo-bg: #d5e4fb; }
+.ig-promo img { flex: 1 1 0; min-height: 0; width: 100%; max-width: 100%; object-fit: contain; transition: transform var(--duration-base); }
+.ig-promo:hover img { transform: scale(1.05); }
+.ig-promo__t { font-family: var(--font-heading); font-weight: var(--weight-bold); font-size: 20px; line-height: 1.15; text-transform: uppercase; }
 .ig-promo:hover .ig-promo__t { color: var(--text-link); }
 
 /* баннеры категорий: по два в ряд, 667×241 в макете; надпись слева или справа (ig-cat--end) */
@@ -1949,12 +1960,13 @@ body.igro[data-page="home"] { background: var(--surface-card); }
 @media (max-width: 1100px) {
   .ig-dispo { grid-template-columns: 1fr; padding-left: 0; }
   .ig-offers__track { grid-auto-columns: calc((100% - 2 * var(--space-4)) / 3); }
-  .ig-cat__t, .ig-promo__t, .ig-dispo__t, .ig-offers__t { font-size: 26px; }
+  .ig-cat__t, .ig-dispo__t, .ig-offers__t { font-size: 26px; }
+  .ig-promo__t { font-size: 16px; }
 }
 @media (max-width: 767px) {
-  .ig-promos { grid-template-columns: repeat(2, 1fr); gap: var(--space-4) var(--space-3); }
-  .ig-promo img { max-height: 140px; }
-  .ig-promo__t { font-size: 20px; }
+  .ig-home__top { grid-template-columns: 1fr 1fr; gap: var(--space-3); margin: var(--space-3) 0; }
+  .ig-promo { aspect-ratio: 1; padding: var(--space-2) var(--space-2) var(--space-3); }
+  .ig-promo__t { font-size: 14px; }
   .ig-cats { grid-template-columns: 1fr; gap: var(--space-3); margin: var(--space-3) 0; }
   .ig-cat { min-height: 0; }
   .ig-cat__body { max-width: 60%; padding: var(--space-3); }
