@@ -635,7 +635,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .ig-banner[data-banner="hair-zavivka"]         { --cb-bg: #e9e0da; }
 .ig-banner[data-banner="hair-stayling"]        { --cb-bg: #98c0c8; }
 .ig-banner[data-banner="hair-nabory"]          { --cb-bg: #f7e1c0; }
-.ig-banner[data-banner="hair-muzhskoy-uhod"]   { --cb-bg: #634339; }
+.ig-banner[data-banner="hair-muzhskoy-uhod"]   { --cb-bg: #335351; }
 .ig-banner[data-banner="hair-aksessuary"]      { --cb-bg: #acc2e5; }
 .ig-banner[data-banner="hair-instrumenty"]     { --cb-bg: #d6e9e7; }
 .ig-banner[data-banner="hair-muzhskoy-uhod"] { color: var(--text-on-dark); }
