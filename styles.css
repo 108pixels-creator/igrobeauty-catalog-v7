@@ -1881,7 +1881,9 @@ ul { margin: 0; padding: 0; list-style: none; }
    ========================================================================== */
 /* фон главной белый, как в макете: у эмблем подборок и плиток белая подложка */
 body.igro[data-page="home"] { background: var(--surface-card); }
-.ig-home { padding-top: var(--mast-h, 0px); padding-bottom: var(--space-9); }
+.ig-home { padding-top: var(--mast-h, 0px); }
+/* 04.11, Антон: подвал ближе к последнему ряду баннеров – вдвое (было 24 + 64 + 64 = 152 px, стало 76; отступ ряда схлопывается с отступом подвала) */
+body.igro[data-page="home"] .ig-footer { margin-top: 76px; }
 .ig-home__strip {
   display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: var(--space-2) var(--space-4);
   padding: var(--space-3) 0;
