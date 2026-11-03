@@ -545,11 +545,12 @@ ul { margin: 0; padding: 0; list-style: none; }
   --cb-crumbs-gap: var(--space-3);  /* от крошек до баннеров */
   --cb-pad-b: var(--space-7);       /* от баннеров до низа полосы */
   --cb-fade: 93px;                  /* ширина затемнения — макет */
-  --cb-scene: #0e241a;              /* цвет затемнения — самый тёмный тон фотографии сцены, из макета */
+  --cb-scene: #012220;              /* цвет затемнения — тон правой части фона (03.11; со сценой из ЛК было #0e241a) */
   position: relative;
   overflow: hidden;
   padding: var(--space-3) 0 calc(var(--cb-pad-b) - var(--cb-ring));
-  background: var(--cb-scene) url("assets/hero-scene.webp") center 22% / cover no-repeat;
+  /* 03.11: фон – Figma IGRO DESIGN SYSTEM 2686:3 «hair-scene-teal-dark-a» (1920×446), до этого – сцена из ЛК hero-scene.webp */
+  background: var(--cb-scene) url("assets/hero-scene-teal-dark.webp") left top / cover no-repeat;
   color: var(--text-on-dark);
 }
 /* крошки на тёмном: ссылки белые с подчёркиванием, текущий раздел приглушён — как Breadcrumb ДС, только на House */
