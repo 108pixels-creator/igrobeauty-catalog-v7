@@ -571,6 +571,9 @@ ul { margin: 0; padding: 0; list-style: none; }
 .ig-cathero[data-cat="cosmetology"] .ig-cathero__crumbs .igro-crumbs__sep,
 .ig-cathero[data-cat="cosmetology"] .ig-cathero__crumbs .igro-crumbs__current { color: var(--text-muted); }
 .ig-cathero[data-cat="cosmetology"] .ig-banner { box-shadow: 0 6px 18px -6px rgba(40, 35, 30, .28); }
+/* лента прокручивается и режет всё за своим отступом: тень уходит на 18 px вниз, отступ 8 px – низ тени был ровным (04.11).
+   Нижний отступ ленты +16 px и столько же отрицательным полем – высота полосы прежняя */
+.ig-cathero[data-cat="cosmetology"] .ig-cathero__track { padding-bottom: calc(var(--cb-ring) + 16px); margin-bottom: -16px; }
 .ig-cathero[data-cat="cosmetology"] .ig-banner:focus-visible { outline-color: var(--text-link); }
 
 .ig-cathero__rail { position: relative; isolation: isolate; }
