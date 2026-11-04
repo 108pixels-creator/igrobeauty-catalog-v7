@@ -39,7 +39,17 @@
     'dispo-sredstva-dlya-zaschity': 'Средства защиты',
     'dispo-prostyni-i-pokrytiya': 'Простыни и покрытия',
     'dispo-polotenca-i-salfetki': 'Полотенца и салфетки',
-    'dispo-dispensery-i-oborudovanie-dlya-rashodnyh-materialov': 'Диспенсеры'
+    'dispo-dispensery-i-oborudovanie-dlya-rashodnyh-materialov': 'Диспенсеры',
+    /* 04.11: квадраты «Косметологии» – Figma zI4as0EjzW7SlosfoEbPBe 2924:2759 (banners/square/08_2026-11-04_cosmetology-palette-v) */
+    'cosm-uhod-dlya-lica': 'Уход для лица',
+    'cosm-zaschita-ot-solnca': 'Защита от солнца',
+    'cosm-nabory': 'Наборы',
+    'cosm-dermatokosmecevtika': 'Дерматокосмецевтика',
+    'cosm-sredstva-dlya-apparatnoy-kosmetologii': 'Средства для аппаратной косметологии',
+    'cosm-uhod-dlya-tela': 'Уход для тела',
+    'cosm-muzhskoy-uhod': 'Мужской уход',
+    'cosm-aksessuary': 'Аксессуары',
+    'cosm-instrumenty': 'Инструменты'
   };
   /* фон шапки подкатегорий «Волос» и их групп: assets/hero/<id подкатегории>.jpg, 2880×480, в центре светло —
      заголовок читается. С 19.10.2026 — интерьеры из banners/horizontal/08_2026-10-19_hair-krea3-final

@@ -647,6 +647,20 @@ ul { margin: 0; padding: 0; list-style: none; }
 .ig-banner[data-banner="dispo-prostyni-i-pokrytiya"]   { --cb-bg: #f2d7c7; }
 .ig-banner[data-banner="dispo-polotenca-i-salfetki"]   { --cb-bg: #cbdefb; }
 .ig-banner[data-banner="dispo-dispensery-i-oborudovanie-dlya-rashodnyh-materialov"] { --cb-bg: #2c504c; color: var(--text-on-dark); }
+/* 04.11: «Косметология» – Figma zI4as0EjzW7SlosfoEbPBe 2924:2759 (banners/square/08_2026-11-04_cosmetology-palette-v).
+   Подписи как в макете: #335351 на светлых, коричневая на «Защите от солнца» (решение Антона), белые на тёмных */
+.ig-banner[data-banner^="cosm-"] { color: #335351; }
+.ig-banner[data-banner="cosm-uhod-dlya-lica"]      { --cb-bg: #c8f0da; }
+.ig-banner[data-banner="cosm-zaschita-ot-solnca"]  { --cb-bg: #f7e1c0; color: #8d5831; }
+.ig-banner[data-banner="cosm-nabory"]              { --cb-bg: #acc2e5; }
+.ig-banner[data-banner="cosm-dermatokosmecevtika"] { --cb-bg: #e9e0da; }
+.ig-banner[data-banner="cosm-sredstva-dlya-apparatnoy-kosmetologii"] { --cb-bg: #98cdc8; }
+.ig-banner[data-banner="cosm-uhod-dlya-tela"]      { --cb-bg: #644841; color: var(--text-on-dark); }
+.ig-banner[data-banner="cosm-muzhskoy-uhod"]       { --cb-bg: #3e5a4b; color: var(--text-on-dark); }
+.ig-banner[data-banner="cosm-aksessuary"]          { --cb-bg: #d5e4fb; }
+.ig-banner[data-banner="cosm-instrumenty"]         { --cb-bg: #cce8eb; }
+/* слово не влезает в строку: перенос внутри слова, как в макете («ДЕРМАТОКОСМЕЦЕ / ВТИКА») */
+.ig-banner[data-banner="cosm-dermatokosmecevtika"] .ig-banner__t { overflow-wrap: anywhere; }
 
 /* ==========================================================================
    ПАНЕЛЬ ИНСТРУМЕНТОВ: «Фильтры», чипы брендов (Tag), счётчик, сортировка (Menu)
