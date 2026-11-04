@@ -1897,7 +1897,7 @@ body.igro[data-page="home"] .ig-footer { margin-top: 76px; }
 
 /* верх главной (03.11, просьба Антона): слева 4 плашки подборок 2×2, справа «Волосы» над «Бровями».
    Одна сетка в 4 колонки: баннер занимает 2 колонки и задаёт высоту ряда (667 : 241), плашки тянутся на ту же высоту –
-   пара плашек вместе равна баннеру. Фоны плашек – светлые палитры В, по одному на семейство */
+   пара плашек вместе равна баннеру. Фоны плашек – светлые палитры В, по одному на семейство; 04.11 Антон в Figma 2884:5151 сделал все светло-серыми #EDEDED */
 .ig-home__top { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-4); margin: var(--space-4) 0; }
 .ig-home__top > .ig-cat { grid-column: span 2; }
 .ig-promo {
@@ -1905,10 +1905,10 @@ body.igro[data-page="home"] .ig-footer { margin-top: 76px; }
   min-width: 0; padding: var(--space-3); border-radius: 12px; background: var(--promo-bg); color: var(--text-default); text-align: center;
   transition: box-shadow var(--duration-base);
 }
-.ig-promo--new      { --promo-bg: #d6e9e7; }
-.ig-promo--top      { --promo-bg: #f7e1c0; }
-.ig-promo--markdown { --promo-bg: #c8f0da; }
-.ig-promo--sale     { --promo-bg: #d5e4fb; }
+.ig-promo--new      { --promo-bg: #ededed; }
+.ig-promo--top      { --promo-bg: #ededed; }
+.ig-promo--markdown { --promo-bg: #ededed; }
+.ig-promo--sale     { --promo-bg: #ededed; }
 .ig-promo img { flex: 1 1 0; min-height: 0; width: 100%; max-width: 100%; object-fit: contain; transition: transform var(--duration-base); }
 .ig-promo:hover img { transform: scale(1.05); }
 .ig-promo__t { font-family: var(--font-heading); font-weight: var(--weight-bold); font-size: 20px; line-height: 1.15; text-transform: uppercase; }
