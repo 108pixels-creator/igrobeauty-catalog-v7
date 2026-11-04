@@ -1301,7 +1301,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 /* ==========================================================================
    ПОДВАЛ И СЛУЖЕБНАЯ СТРОКА ПРОТОТИПА
    ========================================================================== */
-.ig-footer { margin-top: var(--space-9); background: var(--surface-band-dark); color: var(--text-on-dark-muted); }
+.ig-footer { margin-top: var(--space-9); background: #335351; color: var(--text-on-dark-muted); }   /* 04.11, Антон: как плашка меню (--mast-menu); было --surface-band-dark #1A3328 */
 .ig-footer__inner {
   display: flex;
   align-items: center;
