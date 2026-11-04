@@ -545,11 +545,12 @@ ul { margin: 0; padding: 0; list-style: none; }
   --cb-crumbs-gap: var(--space-3);  /* от крошек до баннеров */
   --cb-pad-b: var(--space-7);       /* от баннеров до низа полосы */
   --cb-fade: 93px;                  /* ширина затемнения — макет */
-  --cb-scene: #0e241a;              /* цвет затемнения — самый тёмный тон фотографии сцены, из макета */
+  --cb-scene: #012220;              /* цвет затемнения — тон правой части фона (03.11; со сценой из ЛК было #0e241a) */
   position: relative;
   overflow: hidden;
   padding: var(--space-3) 0 calc(var(--cb-pad-b) - var(--cb-ring));
-  background: var(--cb-scene) url("assets/hero-scene.webp") center 22% / cover no-repeat;
+  /* 03.11: фон – Figma IGRO DESIGN SYSTEM 2686:3 «hair-scene-teal-dark-a» (1920×446), до этого – сцена из ЛК hero-scene.webp */
+  background: var(--cb-scene) url("assets/hero-scene-teal-dark.webp") left top / cover no-repeat;
   color: var(--text-on-dark);
 }
 /* крошки на тёмном: ссылки белые с подчёркиванием, текущий раздел приглушён — как Breadcrumb ДС, только на House */
@@ -558,6 +559,22 @@ ul { margin: 0; padding: 0; list-style: none; }
 .ig-cathero__crumbs .igro-crumbs__link { color: var(--text-on-dark); }
 .ig-cathero__crumbs .igro-crumbs__sep,
 .ig-cathero__crumbs .igro-crumbs__current { color: var(--text-on-dark-muted); }
+
+/* 04.11: «Косметология» – светлый фон «3а. Свет и тень, туман #D6E9E7» (banners/category-scene/01_2026-11-03_hair-concepts,
+   assets/hair-scene-fog.jpg): тень эвкалипта по ровному полю. Шапка для светлого фона – тёмный текст, под плитками мягкая тень (как в концепции) */
+.ig-cathero[data-cat="cosmetology"] {   /* + класс ig-cathero--light (render.js CATHERO_LIGHT): шапка сайта с тёмным текстом */
+  --cb-scene: #c8dedb;              /* тон правого края картинки */
+  background: var(--cb-scene) url("assets/hero-scene-fog.webp") left top / cover no-repeat;
+  color: var(--text-default);
+}
+.ig-cathero[data-cat="cosmetology"] .ig-cathero__crumbs .igro-crumbs__link { color: var(--text-default); }
+.ig-cathero[data-cat="cosmetology"] .ig-cathero__crumbs .igro-crumbs__sep,
+.ig-cathero[data-cat="cosmetology"] .ig-cathero__crumbs .igro-crumbs__current { color: var(--text-muted); }
+.ig-cathero[data-cat="cosmetology"] .ig-banner { box-shadow: 0 6px 18px -6px rgba(40, 35, 30, .28); }
+/* лента прокручивается и режет всё за своим отступом: тень уходит на 18 px вниз, отступ 8 px – низ тени был ровным (04.11).
+   Нижний отступ ленты +16 px и столько же отрицательным полем – высота полосы прежняя */
+.ig-cathero[data-cat="cosmetology"] .ig-cathero__track { padding-bottom: calc(var(--cb-ring) + 16px); margin-bottom: -16px; }
+.ig-cathero[data-cat="cosmetology"] .ig-banner:focus-visible { outline-color: var(--text-link); }
 
 .ig-cathero__rail { position: relative; isolation: isolate; }
 /* затемнение краёв: справа — пока ряд не докручен до конца, слева — когда ряд прокручен.
@@ -627,18 +644,39 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 /* фон — цвет угла картинки, виден, пока она грузится (цвета картинок, не интерфейса).
    Подпись — IGRO Green (--text-heading): на всех светлых фонах ≥ 6:1. На тёмном баннере — белая */
-/* фон тайла = подложка баннера (квадраты v5 «один предмет крупно», banners/square/01_2026-10-26_chips-test/squares-v5, 26.10) */
-.ig-banner[data-banner="hair-okrashivanie"]    { --cb-bg: #c8f0da; }
-.ig-banner[data-banner="hair-blond"]           { --cb-bg: #f7e1c0; }
-.ig-banner[data-banner="hair-uhod-dlya-volos"] { --cb-bg: #c7eeea; }
-.ig-banner[data-banner="hair-terapiya"]        { --cb-bg: #ebe4d6; }
-.ig-banner[data-banner="hair-zavivka"]         { --cb-bg: #c8f0da; }
-.ig-banner[data-banner="hair-stayling"]        { --cb-bg: #f5e0d2; }
-.ig-banner[data-banner="hair-nabory"]          { --cb-bg: #f5e0d2; }
+/* фон тайла = подложка баннера (квадраты «Волос» v3, Figma IGRO DESIGN SYSTEM 2674:2, 03.11; было – квадраты v5 от 26.10) */
+.ig-banner[data-banner="hair-okrashivanie"]    { --cb-bg: #f5dcce; }
+.ig-banner[data-banner="hair-blond"]           { --cb-bg: #c8f0da; }
+.ig-banner[data-banner="hair-uhod-dlya-volos"] { --cb-bg: #f5e0d2; }
+.ig-banner[data-banner="hair-terapiya"]        { --cb-bg: #d5e4fb; }
+.ig-banner[data-banner="hair-zavivka"]         { --cb-bg: #e9e0da; }
+.ig-banner[data-banner="hair-stayling"]        { --cb-bg: #98c0c8; }
+.ig-banner[data-banner="hair-nabory"]          { --cb-bg: #f7e1c0; }
 .ig-banner[data-banner="hair-muzhskoy-uhod"]   { --cb-bg: #335351; }
-.ig-banner[data-banner="hair-aksessuary"]      { --cb-bg: #f7e1c0; }
+.ig-banner[data-banner="hair-aksessuary"]      { --cb-bg: #acc2e5; }
 .ig-banner[data-banner="hair-instrumenty"]     { --cb-bg: #d6e9e7; }
 .ig-banner[data-banner="hair-muzhskoy-uhod"] { color: var(--text-on-dark); }
+/* 03.11: «Одноразовая продукция» – фоны квадратов – замер фона картинок (заданы были #C8F0DA, #F7E1C0, #D6E9E7, #F5E0D2, #D5E4FB, #335351) (banners/square/07_2026-11-03_dispo-palette-v) */
+.ig-banner[data-banner="dispo-odnorazovaya-odezhda"]   { --cb-bg: #c0e3d3; }
+.ig-banner[data-banner="dispo-odnorazovye-komplekty"]  { --cb-bg: #f3d7b8; }
+.ig-banner[data-banner="dispo-sredstva-dlya-zaschity"] { --cb-bg: #c7e0df; }
+.ig-banner[data-banner="dispo-prostyni-i-pokrytiya"]   { --cb-bg: #f2d7c7; }
+.ig-banner[data-banner="dispo-polotenca-i-salfetki"]   { --cb-bg: #cbdefb; }
+.ig-banner[data-banner="dispo-dispensery-i-oborudovanie-dlya-rashodnyh-materialov"] { --cb-bg: #2c504c; color: var(--text-on-dark); }
+/* 04.11: «Косметология» – Figma zI4as0EjzW7SlosfoEbPBe 2924:2759 (banners/square/08_2026-11-04_cosmetology-palette-v).
+   Подписи как в макете: #335351 на светлых, коричневая на «Защите от солнца» (решение Антона), белые на тёмных */
+.ig-banner[data-banner^="cosm-"] { color: #335351; }
+.ig-banner[data-banner="cosm-uhod-dlya-lica"]      { --cb-bg: #c8f0da; }
+.ig-banner[data-banner="cosm-zaschita-ot-solnca"]  { --cb-bg: #f7e1c0; color: #8d5831; }
+.ig-banner[data-banner="cosm-nabory"]              { --cb-bg: #acc2e5; }
+.ig-banner[data-banner="cosm-dermatokosmecevtika"] { --cb-bg: #e9e0da; }
+.ig-banner[data-banner="cosm-sredstva-dlya-apparatnoy-kosmetologii"] { --cb-bg: #98cdc8; }
+.ig-banner[data-banner="cosm-uhod-dlya-tela"]      { --cb-bg: #644841; color: var(--text-on-dark); }
+.ig-banner[data-banner="cosm-muzhskoy-uhod"]       { --cb-bg: #3e5a4b; color: var(--text-on-dark); }
+.ig-banner[data-banner="cosm-aksessuary"]          { --cb-bg: #d5e4fb; }
+.ig-banner[data-banner="cosm-instrumenty"]         { --cb-bg: #cce8eb; }
+/* слово не влезает в строку: перенос внутри слова, как в макете («ДЕРМАТОКОСМЕЦЕ / ВТИКА») */
+.ig-banner[data-banner="cosm-dermatokosmecevtika"] .ig-banner__t { overflow-wrap: anywhere; }
 
 /* ==========================================================================
    ПАНЕЛЬ ИНСТРУМЕНТОВ: «Фильтры», чипы брендов (Tag), счётчик, сортировка (Menu)
@@ -1293,7 +1331,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 /* ==========================================================================
    ПОДВАЛ И СЛУЖЕБНАЯ СТРОКА ПРОТОТИПА
    ========================================================================== */
-.ig-footer { margin-top: var(--space-9); background: var(--surface-band-dark); color: var(--text-on-dark-muted); }
+.ig-footer { margin-top: var(--space-9); background: #335351; color: var(--text-on-dark-muted); }   /* 04.11, Антон: как плашка меню (--mast-menu); было --surface-band-dark #1A3328 */
 .ig-footer__inner {
   display: flex;
   align-items: center;
@@ -1752,16 +1790,14 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 /* «Каталог»: с 27.10 – внутри плашки, вровень с логотипом её левый край (до того иконка выносилась к линии логотипа) */
 
-/* квадратный логотип меньше: знак 52 px, «ИГРО» 16 px; низ слова – по нижнему краю поля поиска (23.10).
-   Логотип выше поля поиска; строка шапки выровнена по нижнему краю */
+/* квадратный логотип меньше: знак 52 px, «ИГРО» 16 px (23.10). Логотип выше поля поиска;
+   с 04.11 поиск и иконки – по центру его высоты */
 @media (min-width: 768px) {
   .ig-mast .ig-logo__svg { width: 52px; }
   .ig-mast .ig-logo__word { font-size: 16px; }
   .ig-mast .ig-logo__mark { gap: 5px; }
-  /* полная шапка: строка выровнена по нижнему краю – низ слова «ИГРО» на линии низа поля поиска и иконок
-     (у слова со строкой высотой 1 под буквами ~2,5 px – их компенсирует отрицательное поле) */
-  .ig-mast:not(.is-compact) .ig-header__inner { align-items: flex-end; }
-  .ig-mast:not(.is-compact) .ig-logo { margin-bottom: -2.5px; }
+  /* 04.11: полная шапка – поиск и иконки по центру высоты логотипа (общее align-items: center).
+     С 23.10 строка была выровнена по нижнему краю – низ «ИГРО» на линии поля поиска; Антон попросил по центру */
   /* 26.10: место под логотип одной ширины в полной и сжатой шапке (= сжатый логотип со слоганом, 288 px) –
      поле поиска не сдвигается при переходе */
   .ig-mast .ig-logo { min-width: 290px; }
@@ -1864,3 +1900,115 @@ ul { margin: 0; padding: 0; list-style: none; }
    отличает товары (оттенок, объём, размер), – тёмная полужирная */
 .ig-card--variant .ig-card__name { color: var(--text-muted); }
 .ig-card--variant .ig-card__desc { color: var(--text-default); font-weight: var(--weight-bold); }
+
+/* ==========================================================================
+   ГЛАВНАЯ КАТАЛОГА (index.html, 03.11.2026) – по макету Figma «IB – my DESIGN», узел 2862:4831.
+   Шапка и подвал – как на страницах каталога (render.js рисует только меню, подвал и корзину: body data-page="home").
+   Картинки – assets/home: баннеры категорий выгружены из макета целиком, без надписей (фото + градиент),
+   надписи – текстом. Шрифты макета Inter и Oswald заменены шрифтами ДС
+   ========================================================================== */
+/* фон главной белый, как в макете: у эмблем подборок и плиток белая подложка */
+body.igro[data-page="home"] { background: var(--surface-card); }
+.ig-home { padding-top: var(--mast-h, 0px); }
+/* 04.11, Антон: подвал ближе к последнему ряду баннеров – вдвое (было 24 + 64 + 64 = 152 px, стало 76; отступ ряда схлопывается с отступом подвала) */
+body.igro[data-page="home"] .ig-footer { margin-top: 76px; }
+.ig-home__strip {
+  display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: var(--space-2) var(--space-4);
+  padding: var(--space-3) 0;
+  font-family: var(--font-heading); font-size: 16px; color: var(--text-default);
+}
+.ig-home__delivery { margin: 0; }
+.ig-home__delivery b, .ig-home__pro { font-weight: var(--weight-bold); text-transform: uppercase; }
+.ig-home__delivery b:last-child { text-transform: none; }
+.ig-home__pro { color: var(--text-default); }
+.ig-home__pro:hover { color: var(--text-link); }
+
+/* верх главной (03.11, просьба Антона): слева 4 плашки подборок 2×2, справа «Волосы» над «Бровями».
+   Одна сетка в 4 колонки: баннер занимает 2 колонки и задаёт высоту ряда (667 : 241), плашки тянутся на ту же высоту –
+   пара плашек вместе равна баннеру. Фоны плашек – светлые палитры В, по одному на семейство; 04.11 Антон в Figma 2884:5151 сделал все светло-серыми #EDEDED */
+.ig-home__top { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-4); margin: var(--space-4) 0; }
+.ig-home__top > .ig-cat { grid-column: span 2; }
+.ig-promo {
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: var(--space-2);
+  min-width: 0; padding: var(--space-3); border-radius: 12px; background: var(--promo-bg); color: var(--text-default); text-align: center;
+  transition: box-shadow var(--duration-base);
+}
+.ig-promo--new      { --promo-bg: #ededed; }
+.ig-promo--top      { --promo-bg: #ededed; }
+.ig-promo--markdown { --promo-bg: #ededed; }
+.ig-promo--sale     { --promo-bg: #ededed; }
+.ig-promo img { flex: 1 1 0; min-height: 0; width: 100%; max-width: 100%; object-fit: contain; transition: transform var(--duration-base); }
+@media (hover: hover) { .ig-promo:hover img { transform: scale(1.05); } }
+.ig-promo__t { font-family: var(--font-heading); font-weight: var(--weight-bold); font-size: 20px; line-height: 1.15; text-transform: uppercase; }
+.ig-promo:hover .ig-promo__t { color: var(--text-link); }
+
+/* баннеры категорий: по два в ряд, 667×241 в макете; надпись слева или справа (ig-cat--end) */
+.ig-cats { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); margin: var(--space-4) 0; }
+.ig-cat {
+  position: relative; display: flex; aspect-ratio: 667 / 241; min-height: 200px; overflow: hidden;
+  border-radius: 12px; background: var(--cat-bg, #e7e6eb);   /* --cat-bg – фон картинки (04.11), виден, пока она грузится */ color: var(--text-default);
+}
+/* картинка – отдельным слоем, чтобы при наведении слегка увеличиваться, как в плашках и квадратах (04.11) */
+.ig-cat::before { content: ""; position: absolute; inset: 0; background: var(--cat-img) center / cover no-repeat; transition: transform var(--duration-base) var(--ease-standard); }
+.ig-cat > * { position: relative; }
+/* увеличение – от центра предметов, а не карточки: предметы стоят справа (текст слева) или слева (ig-cat--end), иначе картинка «уезжает» в сторону */
+.ig-cat::before { transform-origin: 74% 58%; }
+.ig-cat--end::before { transform-origin: 26% 58%; }
+@media (hover: hover) { .ig-cat:hover::before { transform: scale(1.05); } }
+.ig-cat--end { justify-content: flex-end; text-align: right; }
+.ig-cat__body { display: flex; flex-direction: column; align-items: flex-start; max-width: 52%; padding: 28px 30px 24px; }
+.ig-cat--end .ig-cat__body { align-items: flex-end; }
+.ig-cat__t { font-family: var(--font-heading); font-weight: var(--weight-bold); font-size: 32px; line-height: 1.17; text-transform: uppercase; }
+.ig-cat__d { margin-top: var(--space-3); font-size: 15px; line-height: 1.3; color: var(--text-muted); max-width: 15em; }
+.ig-cat__go { margin-top: auto; padding-top: var(--space-3); font-family: var(--font-heading); font-weight: var(--weight-semibold); font-size: 18px; text-transform: uppercase; }
+.ig-cat:hover .ig-cat__go { color: var(--text-link); }
+
+/* одноразовая продукция: заголовок с кнопкой и подкатегории плитками */
+.ig-dispo { display: grid; grid-template-columns: minmax(240px, 300px) 1fr; gap: var(--space-4); align-items: start; margin: var(--space-6) 0; padding-left: 30px; }
+.ig-dispo__t { margin: var(--space-2) 0 var(--space-4); font-family: var(--font-heading); font-weight: var(--weight-bold); font-size: 32px; line-height: 1.2; text-transform: uppercase; color: var(--text-default); }
+.ig-dispo__btn { text-transform: uppercase; font-family: var(--font-heading); font-size: 18px; font-weight: var(--weight-semibold); border-radius: 3px; }
+.ig-dispo__list { display: grid; grid-template-columns: repeat(6, 1fr); gap: var(--space-3); }
+/* 03.11: плитки – такие же баннеры, как в шапке категории (.ig-banner, подпись внутри в левом верхнем углу),
+   только тянутся на ширину колонки */
+.ig-dispo__list .ig-banner { --cb-size: auto; --cb-inset: var(--space-3); width: 100%; height: auto; aspect-ratio: 1; }
+.ig-dispo__list .ig-banner:focus-visible { outline-color: var(--text-link); }
+
+/* лучшее предложение: лента со стрелками */
+.ig-offers { margin: var(--space-7) 0 var(--space-6); }
+.ig-offers__t { margin: 0 0 var(--space-4); text-align: center; font-family: var(--font-heading); font-weight: var(--weight-bold); font-size: 32px; text-transform: uppercase; color: var(--text-default); }
+.ig-offers__wrap { display: flex; align-items: center; gap: var(--space-3); }
+.ig-offers__arrow { flex: none; display: grid; place-items: center; width: 32px; height: 56px; padding: 0; border: 0; background: none; color: var(--text-heading); cursor: pointer; }
+.ig-offers__arrow svg { width: 24px; height: 48px; fill: none; stroke: currentColor; stroke-width: 3; }
+.ig-offers__arrow:disabled { opacity: .25; cursor: default; }
+.ig-offers__track { flex: 1; display: grid; grid-auto-flow: column; grid-auto-columns: calc((100% - 4 * var(--space-4)) / 5); gap: var(--space-4); overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
+.ig-offers__track::-webkit-scrollbar { display: none; }
+.ig-offers__track > li { scroll-snap-align: start; }
+.ig-offer { display: flex; align-items: center; gap: var(--space-2); color: var(--text-heading); }
+.ig-offer img { flex: none; width: 46%; height: auto; }
+.ig-offer__txt { display: flex; flex-direction: column; min-width: 0; }
+.ig-offer__brand { font-family: var(--font-heading); font-weight: var(--weight-semibold); font-size: 24px; line-height: 1.1; }
+.ig-offer__big { font-family: var(--font-heading); font-weight: var(--weight-bold); font-size: 44px; line-height: 1; }
+.ig-offer__name { margin-top: var(--space-1); font-size: 14px; line-height: 1.2; color: var(--text-default); }
+.ig-offer:hover .ig-offer__brand { color: var(--text-link); }
+
+@media (max-width: 1100px) {
+  .ig-dispo { grid-template-columns: 1fr; padding-left: 0; }
+  .ig-offers__track { grid-auto-columns: calc((100% - 2 * var(--space-4)) / 3); }
+  .ig-cat__t, .ig-dispo__t, .ig-offers__t { font-size: 26px; }
+  .ig-promo__t { font-size: 16px; }
+}
+@media (max-width: 767px) {
+  .ig-home__top { grid-template-columns: 1fr 1fr; gap: var(--space-3); margin: var(--space-3) 0; }
+  .ig-promo { aspect-ratio: 1; padding: var(--space-2) var(--space-2) var(--space-3); }
+  .ig-promo__t { font-size: 14px; }
+  .ig-cats { grid-template-columns: 1fr; gap: var(--space-3); margin: var(--space-3) 0; }
+  .ig-cat { min-height: 0; }
+  .ig-cat__body { max-width: 60%; padding: var(--space-3); }
+  .ig-cat__t, .ig-dispo__t, .ig-offers__t { font-size: 22px; }
+  .ig-cat__d { display: none; }
+  .ig-cat__go { font-size: 15px; }
+  .ig-dispo__list { grid-template-columns: repeat(3, 1fr); }
+  .ig-dispo__list .ig-banner { --cb-inset: var(--space-2); }
+  .ig-offers__track { grid-auto-columns: 80%; }
+  .ig-home__strip { font-size: 14px; }
+}

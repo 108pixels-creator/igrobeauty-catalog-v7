@@ -83,12 +83,9 @@
     if (t.closest('[data-apply]')) { closeAll(); return; }
     if (t.closest('[data-close]')) { closeAll(); return; }
 
-    /* мега-меню: клик по «Каталог» после наведения не должен закрывать только что открытое меню */
-    if (t.closest('[data-toggle="mega"]') && megaEl) {
-      if (megaOpen() && megaByHover) megaByHover = false;
-      else setMega(!megaOpen());
-      return;
-    }
+    /* «Каталог» (03.11) – ссылка на главную каталога: клик ведёт туда, меню раскрывается наведением
+       (с клавиатуры – стрелкой вниз) */
+    if (t.closest('[data-toggle="mega"]')) return;
     if (t.closest('[data-mega-close]')) { setMega(false); if (catalogBtn) catalogBtn.focus(); return; }
     if (megaOpen() && !t.closest('#mega')) setMega(false);
     var catBtn = t.closest('.ig-mega__cat');
@@ -169,6 +166,13 @@
   });
 
   document.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowDown' && catalogBtn && e.target === catalogBtn && megaEl) {
+      e.preventDefault();
+      setMega(true);
+      var firstCat = megaEl.querySelector('.ig-mega__cat.is-active') || megaEl.querySelector('.ig-mega__cat');
+      if (firstCat) firstCat.focus();
+      return;
+    }
     if (e.key === 'Escape') {
       closeAll();
       if (megaOpen()) { setMega(false); if (catalogBtn) catalogBtn.focus(); }
@@ -276,7 +280,8 @@
     var docEl = document.documentElement;
     var heroEl = document.querySelector('#page > .ig-cathero, #page > .ig-hero');
     /* тёмный баннер: сцена категории или фон подкатегории с пометкой ig-hero--dark (render.js, HERO_DARK) */
-    mast.classList.toggle('is-on-dark', !!(heroEl && (heroEl.classList.contains('ig-cathero') || heroEl.classList.contains('ig-hero--dark'))));
+    /* 04.11: сцена категории со светлым фоном (ig-cathero--light, render.js CATHERO_LIGHT – «Косметология») – шапка с тёмным текстом */
+    mast.classList.toggle('is-on-dark', !!(heroEl && ((heroEl.classList.contains('ig-cathero') && !heroEl.classList.contains('ig-cathero--light')) || heroEl.classList.contains('ig-hero--dark'))));
     var lastY = window.scrollY, mastTick = false;
     var mastSlot = mast.parentNode;
     var mastNav = mast.querySelector('.ig-mainnav');
@@ -425,5 +430,23 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
       setTimeout(function () { if (input) input.focus({ preventScroll: true }); }, 350);
     });
+  }
+
+  /* главная (03.11): лента «Лучшее предложение» – стрелки листают на ширину ленты, у края стрелка гаснет */
+  var offers = document.querySelector('[data-offers-track]');
+  if (offers) {
+    var offWrap = offers.parentNode;
+    var offArrows = function () {
+      var max = offers.scrollWidth - offers.clientWidth - 8;   /* запас на округление ширины колонок */
+      offWrap.querySelector('[data-offers="-1"]').disabled = offers.scrollLeft <= 8;
+      offWrap.querySelector('[data-offers="1"]').disabled = offers.scrollLeft >= max;
+    };
+    offWrap.addEventListener('click', function (e) {
+      var b = e.target.closest('[data-offers]');
+      if (b) offers.scrollBy({ left: +b.getAttribute('data-offers') * offers.clientWidth, behavior: 'smooth' });
+    });
+    offers.addEventListener('scroll', offArrows, { passive: true });
+    window.addEventListener('resize', offArrows);
+    offArrows();
   }
 })();

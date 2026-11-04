@@ -32,7 +32,24 @@
     'hair-nabory': 'Наборы',
     'hair-muzhskoy-uhod': 'Мужской уход',
     'hair-aksessuary': 'Аксессуары',
-    'hair-instrumenty': 'Инструменты'
+    'hair-instrumenty': 'Инструменты',
+    /* 03.11: квадраты «Одноразовой продукции» в палитре В (banners/square/07_2026-11-03_dispo-palette-v) */
+    'dispo-odnorazovaya-odezhda': 'Одежда',
+    'dispo-odnorazovye-komplekty': 'Комплекты',
+    'dispo-sredstva-dlya-zaschity': 'Средства защиты',
+    'dispo-prostyni-i-pokrytiya': 'Простыни и покрытия',
+    'dispo-polotenca-i-salfetki': 'Полотенца и салфетки',
+    'dispo-dispensery-i-oborudovanie-dlya-rashodnyh-materialov': 'Диспенсеры',
+    /* 04.11: квадраты «Косметологии» – Figma zI4as0EjzW7SlosfoEbPBe 2924:2759 (banners/square/08_2026-11-04_cosmetology-palette-v) */
+    'cosm-uhod-dlya-lica': 'Уход для лица',
+    'cosm-zaschita-ot-solnca': 'Защита от солнца',
+    'cosm-nabory': 'Наборы',
+    'cosm-dermatokosmecevtika': 'Дерматокосмецевтика',
+    'cosm-sredstva-dlya-apparatnoy-kosmetologii': 'Средства для аппаратной косметологии',
+    'cosm-uhod-dlya-tela': 'Уход для тела',
+    'cosm-muzhskoy-uhod': 'Мужской уход',
+    'cosm-aksessuary': 'Аксессуары',
+    'cosm-instrumenty': 'Инструменты'
   };
   /* фон шапки подкатегорий «Волос» и их групп: assets/hero/<id подкатегории>.jpg, 2880×480, в центре светло —
      заголовок читается. С 19.10.2026 — интерьеры из banners/horizontal/08_2026-10-19_hair-krea3-final
@@ -47,50 +64,83 @@
   /* иконки групп «Волос» в чипах: assets/groups/<id>.png — набор icons/hair без прозрачных полей по бокам,
      высота файла 192 px. Здесь ширина на экране при высоте 96 px: чип знает размер иконки до её загрузки */
   var ICON_W = {
-    'hair-aksessuary-dlya-okrashivaniya-i-zavivki': 72,
-    'hair-aksessuary-dlya-strizhki-i-ukladki': 80,
-    'hair-aksessuary-odezhda': 85,
-    'hair-aksessuary-prochie-parikmaherskie-prinadlezhnosti': 81,
-    'hair-aksessuary-vorotniki-i-zhguty': 82,
-    'hair-blond-neytralizaciya-zheltizny': 49,
-    'hair-blond-obescvechivanie-i-osvetlenie-volos': 79,
-    'hair-blond-specialnyy-uhod-za-blondom': 85,
-    'hair-blond-zaschita-volos-pri-osvetlenii': 48,
-    'hair-instrumenty-feny': 72,
-    'hair-instrumenty-mashinki-dlya-strizhki': 51,
-    'hair-instrumenty-schipcy-i-ployki': 68,
-    'hair-instrumenty-uhod-za-instrumentami': 68,
-    'hair-muzhskoy-uhod-muzhskie-shampuni': 48,
-    'hair-muzhskoy-uhod-muzhskoy-stayling': 80,
-    'hair-muzhskoy-uhod-okrashivanie-dlya-muzhchin': 62,
-    'hair-muzhskoy-uhod-sredstva-dlya-britya': 68,
-    'hair-muzhskoy-uhod-uhod-za-borodoy-i-usami': 72,
-    'hair-nabory': 85,
-    'hair-okrashivanie-bezammiachnye-krasiteli': 52,
-    'hair-okrashivanie-okisliteli-i-aktivatory': 50,
-    'hair-okrashivanie-servisnye-sredstva': 77,
-    'hair-okrashivanie-stoykie-ammiachnye-krasiteli': 82,
-    'hair-okrashivanie-stoykie-bezammiachnye-krasiteli': 58,
-    'hair-stayling-fiksaciya': 41,
-    'hair-stayling-gladkost-i-blesk': 73,
-    'hair-stayling-nabory-dlya-staylinga': 80,
-    'hair-stayling-obem': 52,
-    'hair-stayling-tekstura-i-kudri': 75,
-    'hair-stayling-termozaschita': 86,
-    'hair-terapiya-dlya-rosta-volos': 75,
-    'hair-terapiya-glubokoe-ochischenie': 68,
-    'hair-terapiya-protiv-vypadeniya-volos': 64,
-    'hair-uhod-dlya-volos-nesmyvaemyy-uhod': 57,
-    'hair-uhod-dlya-volos-obem-volos': 62,
-    'hair-uhod-dlya-volos-pitanie-i-vosstanovlenie-volos': 67,
-    'hair-uhod-dlya-volos-salonnyy-spa-uhod': 81,
-    'hair-uhod-dlya-volos-uhod-dlya-kudryavyh-volos': 67,
-    'hair-uhod-dlya-volos-uhod-dlya-okrashennyh-volos': 85,
-    'hair-uhod-dlya-volos-uhod-dlya-sedyh-volos': 75,
-    'hair-uhod-dlya-volos-universalnyy-uhod': 68,
-    'hair-uhod-dlya-volos-uvlazhnenie-i-blesk-volos': 64,
-    'hair-zavivka-biozavivka': 77,
-    'hair-zavivka-himicheskaya-zavivka': 74
+    'hair-aksessuary-dlya-okrashivaniya-i-zavivki': 86,
+    'hair-aksessuary-dlya-strizhki-i-ukladki': 86,
+    'hair-aksessuary-odezhda': 86,
+    'hair-aksessuary-prochie-parikmaherskie-prinadlezhnosti': 85,
+    'hair-aksessuary-vorotniki-i-zhguty': 85,
+    'hair-blond-neytralizaciya-zheltizny': 85,
+    'hair-blond-obescvechivanie-i-osvetlenie-volos': 85,
+    'hair-blond-specialnyy-uhod-za-blondom': 84,
+    'hair-blond-zaschita-volos-pri-osvetlenii': 83,
+    'hair-instrumenty-feny': 86,
+    'hair-instrumenty-mashinki-dlya-strizhki': 70,
+    'hair-instrumenty-schipcy-i-ployki': 86,
+    'hair-instrumenty-uhod-za-instrumentami': 82,
+    'hair-muzhskoy-uhod-muzhskie-shampuni': 39,
+    'hair-muzhskoy-uhod-muzhskoy-stayling': 84,
+    'hair-muzhskoy-uhod-okrashivanie-dlya-muzhchin': 84,
+    'hair-muzhskoy-uhod-sredstva-dlya-britya': 85,
+    'hair-muzhskoy-uhod-uhod-za-borodoy-i-usami': 76,
+    'hair-nabory': 86,
+    'hair-okrashivanie-bezammiachnye-krasiteli': 85,
+    'hair-okrashivanie-okisliteli-i-aktivatory': 83,
+    'hair-okrashivanie-servisnye-sredstva': 84,
+    'hair-okrashivanie-stoykie-ammiachnye-krasiteli': 84,
+    'hair-okrashivanie-stoykie-bezammiachnye-krasiteli': 83,
+    'hair-stayling-fiksaciya': 77,
+    'hair-stayling-gladkost-i-blesk': 84,
+    'hair-stayling-nabory-dlya-staylinga': 66,
+    'hair-stayling-obem': 75,
+    'hair-stayling-tekstura-i-kudri': 86,
+    'hair-stayling-termozaschita': 84,
+    'hair-terapiya-dlya-rosta-volos': 74,
+    'hair-terapiya-glubokoe-ochischenie': 76,
+    'hair-terapiya-protiv-vypadeniya-volos': 76,
+    'hair-uhod-dlya-volos-nesmyvaemyy-uhod': 78,
+    'hair-uhod-dlya-volos-obem-volos': 80,
+    'hair-uhod-dlya-volos-pitanie-i-vosstanovlenie-volos': 65,
+    'hair-uhod-dlya-volos-salonnyy-spa-uhod': 86,
+    'hair-uhod-dlya-volos-uhod-dlya-kudryavyh-volos': 88,
+    'hair-uhod-dlya-volos-uhod-dlya-okrashennyh-volos': 86,
+    'hair-uhod-dlya-volos-uhod-dlya-sedyh-volos': 87,
+    'hair-uhod-dlya-volos-universalnyy-uhod': 83,
+    'hair-uhod-dlya-volos-uvlazhnenie-i-blesk-volos': 76,
+    'hair-zavivka-biozavivka': 86,
+    'hair-zavivka-himicheskaya-zavivka': 86,
+    /* 04.11: «Косметология» – серия icons/18_2026-11-04_cosm-palette-v-pastel */
+    'cosm-aksessuary-kistochki-shpateli-i-gubki': 77,
+    'cosm-aksessuary-maski-kosmetologicheskie': 78,
+    'cosm-aksessuary-misochki-i-flakony': 77,
+    'cosm-aksessuary-teypy': 80,
+    'cosm-dermatokosmecevtika-antivozrastnoy-uhod': 81,
+    'cosm-dermatokosmecevtika-ochischenie-i-tonizaciya': 72,
+    'cosm-dermatokosmecevtika-syvorotki-i-koncentraty': 56,
+    'cosm-dermatokosmecevtika-uhod-dlya-kozhi-vokrug-glaz': 56,
+    'cosm-dermatokosmecevtika-uhod-s-retinolom': 65,
+    'cosm-dermatokosmecevtika-vosstanovlenie-i-regeneraciya': 61,
+    'cosm-dermatokosmecevtika-zaschita-ot-solnca': 60,
+    'cosm-instrumenty-igly-dlya-mezoterapii': 56,
+    'cosm-instrumenty-instrumenty-ruchnoy-zatochki': 85,
+    'cosm-sredstva-dlya-apparatnoy-kosmetologii-dlya-elektroporacii': 70,
+    'cosm-sredstva-dlya-apparatnoy-kosmetologii-dlya-holodnogo-rasparivaniya': 76,
+    'cosm-sredstva-dlya-apparatnoy-kosmetologii-dlya-lazernoy-kosmetologii': 84,
+    'cosm-sredstva-dlya-apparatnoy-kosmetologii-dlya-mikrotokov': 53,
+    'cosm-sredstva-dlya-apparatnoy-kosmetologii-dlya-rf-liftinga': 67,
+    'cosm-uhod-dlya-lica-ampulnye-koncentraty': 76,
+    'cosm-uhod-dlya-lica-antivozrastnoy-uhod': 67,
+    'cosm-uhod-dlya-lica-eksfoliaciya-i-pilingi': 70,
+    'cosm-uhod-dlya-lica-korrekciya-pigmentacii-kozhi': 82,
+    'cosm-uhod-dlya-lica-maski': 84,
+    'cosm-uhod-dlya-lica-ochischenie-i-tonizaciya': 78,
+    'cosm-uhod-dlya-lica-siyanie-i-lifting': 75,
+    'cosm-uhod-dlya-lica-uhod-dlya-kozhi-vokrug-glaz': 80,
+    'cosm-uhod-dlya-lica-uhod-za-chuvstvitelnoy-kozhey': 86,
+    'cosm-uhod-dlya-lica-uhod-za-zhirnoy-i-problemnoy-kozhey': 82,
+    'cosm-uhod-dlya-lica-uvlazhnenie-i-vosstanovlenie': 87,
+    'cosm-uhod-dlya-tela-osnovnoy-uhod': 68,
+    'cosm-uhod-dlya-tela-sredstva-dlya-massazha': 76,
+    'cosm-uhod-dlya-tela-sredstva-dlya-obertyvaniya': 82
   };
 
   function esc(s) { return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
@@ -129,7 +179,9 @@
   /* неизвестный id не должен ронять страницу — открываем раздел по умолчанию */
   var idParam = params.get('id'), idDefault = document.body.getAttribute('data-default');
   var node = own(D.nodes, idParam) ? D.nodes[idParam] : (own(D.nodes, idDefault) ? D.nodes[idDefault] : D.nodes.hair);
-  document.title = node.title + ' – IGRObeauty';
+  /* главная каталога (index.html) – body data-page="home": раздела нет, меню открывается на «Волосах» */
+  var HOME = document.body.getAttribute('data-page') === 'home';
+  if (!HOME) document.title = node.title + ' – IGRObeauty';
 
   /* ---------- справочник брендов: страна, тип и ID ---------- */
   var BT_TIER = { ex: 0, pa: 1 };
@@ -531,6 +583,8 @@
   });
   /* подкатегории — мини-баннерами, если картинки есть у всех; группы остаются чипами */
   /* мини-баннеры — только на странице категории */
+  /* категории со светлым фоном шапки: шапка сайта над ним – с тёмным текстом (script.js, is-on-dark не ставится) */
+  var CATHERO_LIGHT = ['cosmetology'];
   var banners = node.level === 1 && dirs.length > 0 &&
     dirIds.every(function (id) { return own(BANNERS, id); });
 
@@ -538,7 +592,7 @@
   if (banners) {
     /* тёмная полоса со сценой из ЛК: крошки и ряд баннеров во всю ширину окна.
        Заголовка в макете нет — h1 остаётся для поиска и экранного диктора */
-    html = '<section class="ig-cathero"><div class="ig-container">' +
+    html = '<section class="ig-cathero' + (CATHERO_LIGHT.indexOf(node.id) > -1 ? ' ig-cathero--light' : '') + '" data-cat="' + node.id + '"><div class="ig-container">' +
       crumbsHTML('ig-cathero__crumbs') +
       '<h1 class="igro-sr-only">' + esc(node.title) + '</h1></div>' +
       '<div class="ig-cathero__rail ig-directions__wrap">' +
@@ -573,11 +627,15 @@
   html += '<section class="ig-toolbar"><div class="ig-toolbar__panel" data-tbpanel><div class="ig-container">' +
     '<div class="ig-toolbar__row" id="ig-tb"></div><div id="ig-qf"></div></div></div></section>' +
     '<main class="ig-content"><div class="ig-container" id="ig-content"></div></main>';
-  document.getElementById('page').innerHTML = html;
+  /* главная (index.html, 03.11): разметка страницы своя, в index.html; отсюда – только меню, подвал и корзина */
+  if (!HOME) document.getElementById('page').innerHTML = html;
 
-  /* логотип ведёт на первую категорию и сохраняет режим карточек */
+  /* логотип ведёт на главную и сохраняет режим карточек */
   var logo = document.querySelector('.ig-logo');
   if (logo) logo.setAttribute('href', link('index.html'));
+  /* «Каталог» в меню – тоже на главную (03.11) */
+  var catLink = document.querySelector('[data-toggle="mega"]');
+  if (catLink) catLink.setAttribute('href', link('index.html'));
 
   /* ---------- подвал: категории и служебная строка прототипа ---------- */
   var footNav = document.getElementById('ig-footer-nav');
@@ -596,12 +654,13 @@
     var LEVEL = { 1: 'категория', 2: 'подкатегория', 3: 'группа' };
     var KIND = { set: ', собрана по полю «Тип продукта» = «Набор»', spf: ', собрана по полю «Наличие SPF» = «SPF»' };
     proto.innerHTML = '<span>Прототип каталога ' + esc(VERSION) + ' · справочник «' + esc(D.meta.source.replace(/\.xlsx$/, '')) + '» · сборка ' + esc(built) +
-      ' · раздел ' + esc(node.mid) + ', ' + LEVEL[node.level] + (KIND[node.kind] || '') + '</span>' +
+      (HOME ? ' · главная страница' : ' · раздел ' + esc(node.mid) + ', ' + LEVEL[node.level] + (KIND[node.kind] || '')) + '</span>' +
       '<span class="ig-proto__mode">Карточки: ' +
       (MODE === 'product' ? '<b>по продуктам</b>' : '<a href="' + here('product') + '">по продуктам</a>') + ' · ' +
       (MODE === 'sku' ? '<b>по артикулам</b>' : '<a href="' + here('sku') + '">по артикулам</a>') +
       ' · <button type="button" class="ig-proto__link" data-cart-clear>очистить корзину</button></span>';
   }
+  if (HOME) { renderCart(); return; }
 
   /* ---------- тулбар ---------- */
   /* медаль на чипе эксклюзивного бренда: кружок со звёздочкой, заливка — currentColor */
