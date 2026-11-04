@@ -280,7 +280,8 @@
     var docEl = document.documentElement;
     var heroEl = document.querySelector('#page > .ig-cathero, #page > .ig-hero');
     /* тёмный баннер: сцена категории или фон подкатегории с пометкой ig-hero--dark (render.js, HERO_DARK) */
-    mast.classList.toggle('is-on-dark', !!(heroEl && (heroEl.classList.contains('ig-cathero') || heroEl.classList.contains('ig-hero--dark'))));
+    /* 04.11: сцена категории со светлым фоном (ig-cathero--light, render.js CATHERO_LIGHT – «Косметология») – шапка с тёмным текстом */
+    mast.classList.toggle('is-on-dark', !!(heroEl && ((heroEl.classList.contains('ig-cathero') && !heroEl.classList.contains('ig-cathero--light')) || heroEl.classList.contains('ig-hero--dark'))));
     var lastY = window.scrollY, mastTick = false;
     var mastSlot = mast.parentNode;
     var mastNav = mast.querySelector('.ig-mainnav');

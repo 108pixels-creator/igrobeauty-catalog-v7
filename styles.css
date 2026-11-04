@@ -560,6 +560,19 @@ ul { margin: 0; padding: 0; list-style: none; }
 .ig-cathero__crumbs .igro-crumbs__sep,
 .ig-cathero__crumbs .igro-crumbs__current { color: var(--text-on-dark-muted); }
 
+/* 04.11: «Косметология» – светлый фон «3а. Свет и тень, туман #D6E9E7» (banners/category-scene/01_2026-11-03_hair-concepts,
+   assets/hair-scene-fog.jpg): тень эвкалипта по ровному полю. Шапка для светлого фона – тёмный текст, под плитками мягкая тень (как в концепции) */
+.ig-cathero[data-cat="cosmetology"] {   /* + класс ig-cathero--light (render.js CATHERO_LIGHT): шапка сайта с тёмным текстом */
+  --cb-scene: #c8dedb;              /* тон правого края картинки */
+  background: var(--cb-scene) url("assets/hero-scene-fog.webp") left top / cover no-repeat;
+  color: var(--text-default);
+}
+.ig-cathero[data-cat="cosmetology"] .ig-cathero__crumbs .igro-crumbs__link { color: var(--text-default); }
+.ig-cathero[data-cat="cosmetology"] .ig-cathero__crumbs .igro-crumbs__sep,
+.ig-cathero[data-cat="cosmetology"] .ig-cathero__crumbs .igro-crumbs__current { color: var(--text-muted); }
+.ig-cathero[data-cat="cosmetology"] .ig-banner { box-shadow: 0 6px 18px -6px rgba(40, 35, 30, .28); }
+.ig-cathero[data-cat="cosmetology"] .ig-banner:focus-visible { outline-color: var(--text-link); }
+
 .ig-cathero__rail { position: relative; isolation: isolate; }
 /* затемнение краёв: справа — пока ряд не докручен до конца, слева — когда ряд прокручен.
    Начинается под крошками и проявляется к верху баннеров. Градиент — из макета (в ДС градиентов нет) */

@@ -583,6 +583,8 @@
   });
   /* подкатегории — мини-баннерами, если картинки есть у всех; группы остаются чипами */
   /* мини-баннеры — только на странице категории */
+  /* категории со светлым фоном шапки: шапка сайта над ним – с тёмным текстом (script.js, is-on-dark не ставится) */
+  var CATHERO_LIGHT = ['cosmetology'];
   var banners = node.level === 1 && dirs.length > 0 &&
     dirIds.every(function (id) { return own(BANNERS, id); });
 
@@ -590,7 +592,7 @@
   if (banners) {
     /* тёмная полоса со сценой из ЛК: крошки и ряд баннеров во всю ширину окна.
        Заголовка в макете нет — h1 остаётся для поиска и экранного диктора */
-    html = '<section class="ig-cathero"><div class="ig-container">' +
+    html = '<section class="ig-cathero' + (CATHERO_LIGHT.indexOf(node.id) > -1 ? ' ig-cathero--light' : '') + '" data-cat="' + node.id + '"><div class="ig-container">' +
       crumbsHTML('ig-cathero__crumbs') +
       '<h1 class="igro-sr-only">' + esc(node.title) + '</h1></div>' +
       '<div class="ig-cathero__rail ig-directions__wrap">' +
